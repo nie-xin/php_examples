@@ -26,3 +26,23 @@ class ProcessSale {
         }
     }
 }
+
+// $logger = create_function( '$product', 'print " logging({$product->name})\n";');
+// $processor = new ProcessSale();
+// $processor->registerCallback( $logger );
+
+// $processor->sale( new Product( "shoes", 6) );
+// print "\n";
+// $processor->sale( new Product( "coffee", 6) ) ;
+
+$logger2 = function( $product ) {
+    print " logging({$product->name})\n";
+};
+
+$processor = new ProcessSale();
+$processor->registerCallback( $logger2 );
+
+$processor->sale( new Product("shoes", 6) );
+print "\n";
+$processor->sale( new Product("coffe", 6) );
+
