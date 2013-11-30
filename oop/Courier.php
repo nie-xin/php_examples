@@ -1,4 +1,6 @@
 <?php
+/*namespace shipping;*/
+
 class Courier
 {
     public $name;
@@ -21,6 +23,13 @@ class Courier
         // return an array of the results
         //
         return $courier_list;
+    }
+
+    public function calculateShipping($parcel) {
+        $rate = 1.78;
+        $cost = $rate * $parcel->weight;
+
+        return $cost;
     }
 } // end of Courier class
 ?>
