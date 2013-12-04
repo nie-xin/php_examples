@@ -2,6 +2,7 @@
 require 'Courier.php';
 require 'PigeonPost.php';
 require 'MonotypeDelivery.php';
+require 'Parcel.php';
 
 $mono = new Courier('Monosapce Delivery');
 var_dump($mono);
@@ -22,4 +23,17 @@ if ($courier instanceOf PigeonPost) {
 if ($courier instanceOf Parcel) {
     echo $courier->name . " is a Parcel\n";
 }
+
+$box1 = new Parcel();
+$box1->destinationCountry = 'Denamark';
+
+$box2 = $box1;
+$box2->destinationCountry = 'Brazil';
+
+echo 'Parcels need to ship to: '
+    . $box1->destinationCountry . ' and '
+    . $box2->destinationCountry;
+if ($box1 == $box2) echo 'equivalent';
+if ($box1 === $box2) echo 'exact same object!';
+
 ?>
